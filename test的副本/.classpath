@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/Users/alan/Desktop/jade.jar"/>
+	<classpathentry kind="lib" path="/Users/alan/Desktop/998/commons-math4-core-4.0-beta1.jar"/>
+	<classpathentry kind="lib" path="/Users/alan/Desktop/998/cloudsim-3.0.3/jars/cloudsim-3.0.3-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/alan/Desktop/998/cloudsim-3.0.3/jars/cloudsim-3.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/alan/Desktop/998/cloudsim-3.0.3/jars/cloudsim-examples-3.0.3-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/alan/Desktop/998/cloudsim-3.0.3/jars/cloudsim-examples-3.0.3.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
