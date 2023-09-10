@@ -3,6 +3,28 @@ package multiagent;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.lang.acl.ACLMessage;
+import java.util.Calendar;
+
+import org.cloudbus.cloudsim.Cloudlet;
+import org.cloudbus.cloudsim.CloudletSchedulerTimeShared;
+import org.cloudbus.cloudsim.Datacenter;
+import org.cloudbus.cloudsim.DatacenterBroker;
+import org.cloudbus.cloudsim.DatacenterCharacteristics;
+import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Log;
+import org.cloudbus.cloudsim.Pe;
+import org.cloudbus.cloudsim.Storage;
+import org.cloudbus.cloudsim.UtilizationModel;
+import org.cloudbus.cloudsim.UtilizationModelFull;
+import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.VmAllocationPolicySimple;
+import org.cloudbus.cloudsim.VmSchedulerTimeShared;
+import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.core.SimEntity;
+import org.cloudbus.cloudsim.core.SimEvent;
+import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
+import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
+import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
 
 public class DatacenterAgent extends Agent {
     
@@ -12,6 +34,14 @@ public class DatacenterAgent extends Agent {
     
     @Override
     protected void setup() {
+    	
+    	int numUser = 1;  // The number of users or brokers
+        Calendar calendar = Calendar.getInstance();
+        boolean traceFlag = false;
+        
+        CloudSim.init(numUser, calendar, traceFlag);
+
+        
         addBehaviour(new jade.core.behaviours.CyclicBehaviour(this) {
             public void action() {
                 ACLMessage msg = myAgent.receive();

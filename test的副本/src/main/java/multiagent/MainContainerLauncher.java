@@ -46,6 +46,10 @@ public class MainContainerLauncher {
             AgentController vmAgent = mainContainer.createNewAgent(
                     "VMAgent", "multiagent.VMAgent", new Object[]{});
             vmAgent.start();
+            
+            AgentController runAgent = mainContainer.createNewAgent(
+                    "RunAgent", "multiagent.runagent", new Object[]{});
+            runAgent.start();
 
         } catch (StaleProxyException e) {
             e.printStackTrace();

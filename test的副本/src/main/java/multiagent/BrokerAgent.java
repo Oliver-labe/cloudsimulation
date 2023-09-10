@@ -6,9 +6,13 @@ import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.MessageTemplate;
 import java.util.List;
 import java.util.ArrayList;
+import jade.core.AID;
+import jade.core.Agent;
+import jade.lang.acl.ACLMessage;
 
 public class BrokerAgent extends Agent {
     private List<VMOrDataCenter> availableCenters;
+    
 
     @Override
     protected void setup() {
@@ -21,7 +25,7 @@ public class BrokerAgent extends Agent {
         availableCenters.add(new VMOrDataCenter(3, 100, 1000, 80, 10,3000));
         availableCenters.add(new VMOrDataCenter(4, 200, 3000, 120, 7,500));
         availableCenters.add(new VMOrDataCenter(5, 100, 2000, 100, 2,1000));
-        availableCenters.add(new VMOrDataCenter(6, 200, 5000, 200, 4,800));
+        availableCenters.add(new VMOrDataCenter(6, 200, 5000, 200, 4,800)); 
 
         addBehaviour(new CyclicBehaviour() {
             public void action() {
@@ -114,5 +118,20 @@ public class BrokerAgent extends Agent {
     private void scheduleTask(Task task, VMOrDataCenter selectedCenter) {
         // Logic to schedule task to selected VM or DataCenter
         System.out.println("Scheduling task to " + selectedCenter.getId());
+
+        // Create the ACLMessage
+        ACLMessage msg = new ACLMessage(ACLMessage.INFORM);
+        msg.addReceiver(new AID("runagent", AID.ISLOCALNAME));
+        msg.setLanguage("English");
+        msg.setOntology("Cloud-Computing-Ontology");
+
+        // Convert the task to a string (or serialize it into a format you prefer)
+        String taskAsString = task.toString(); // Assume Task class has a valid toString method
+        System.out.println("Sending message content: " + taskAsString);
+        msg.setContent(taskAsString);
+
+        // Send the message
+        send(msg);
     }
+
 }

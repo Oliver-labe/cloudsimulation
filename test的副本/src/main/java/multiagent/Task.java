@@ -12,6 +12,11 @@ public class Task {
     private int bw;
     private int size;
     // ...其他属性和方法...
+    @Override
+    public String toString() {
+        return mips + "," + ram + "," + bw + "," + size + "," + priority + "," + 
+        		taskLength + "," + processingElements + "," + fileSize + "," + outputSize + "," + cloudTaskId;
+    }
 
     public Task(int mips,int ram, int bw, int size, int priority, long taskLength,int processingElements,long fileSize,long outputSize,int cloudTaskId) {
         this.taskLength = taskLength;
